@@ -5,11 +5,11 @@ const timeEl = document.querySelector('#time')
 const board = document.querySelector('#board')
 const colors = ['red', 'blue', 'white', 'green', 'orange', 'yellow']
 const resetBtn = document.querySelector('#resetBtn')
+const navEl = document.querySelectorAll('#navEl')
+document.body.style.overflow="hidden" //запрещаем скролл для всего документа
 
 let score = 0
 let time = 0
-
-
 
 timeList.addEventListener('click', (event) => {
   if (event.target.classList.contains('time-btn')){
@@ -18,6 +18,10 @@ timeList.addEventListener('click', (event) => {
       top: document.body.scrollHeight,
       behavior: "smooth"
     })
+    for(let el of navEl){
+      el.style.pointerEvents = "none"
+      el.style.cursor = "default"
+    }
     startGame()
   }
 })
@@ -70,6 +74,10 @@ function finishGame() {
   timeEl.parentNode.classList.add('hide')
   board.innerHTML = `<h1>Ваш счет: <span class="primary">${score}</span></h1>`
   resetBtn.style.visibility = 'visible'
+  for(let el of navEl){
+    el.style.pointerEvents = "none"
+    el.style.cursor = "default"
+}
   if(score === 30){
     window.location.href = "../eggs/board-sources/index.html"
   }
@@ -106,4 +114,3 @@ function getRandomColor() {
 function getRandomNumber(min, max) {
   return Math.round(Math.random() * (max - min) + min)
 }
-
