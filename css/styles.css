@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css?family=Khula&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #fff;
+  font-family: 'Khula', sans-serif;
+  max-width: 100vw;
+  height: 100vh;
+  margin: 0;
+  text-align: center;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #16D9E3;
+}
+
+.start {
+  font-size: 1.5rem;
+}
+
+h1 {
+  line-height: 1.4;
+  font-size: 4rem;
+}
+
+.home-screen, .set-time-screen, .game-screen, .rules-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  transition: margin 0.5s ease-out;
+  background: linear-gradient(90deg, #29323C 0%, #485563 100%);
+}
+
+.navbar{
+    display: flex;
+    flex: 1 1;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    backdrop-filter: blur(5px);
+}
+.navbar-menu{
+  padding: 0 5%;
+}
+.navbar-menu>ul>li{
+    cursor: pointer;
+    list-style-type: none;
+    margin-right: 10%;
+}
+.navbar-menu>ul{
+    position: relative;
+    display: flex;
+    width: 100%;
+    padding: 0;
+}
+
+.about-me{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  padding: 0 5%;
+}
+.avatar{
+  justify-content: center;
+  align-items: center;
+}
+.avatar>a>img{
+  width: 60%;
+}
+.info{
+  padding-right: 1%;
+}
+
+.rules>p{
+    margin: .5% 0;  
+    text-align: start;
+    font-size: 1.1em;
+}
+
+.time-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.time-list li {
+  margin: 10px;
+}
+
+.time-btn {
+  background-color: transparent;
+  border: 2px solid #C0C0C0;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  padding: .5rem 1rem;
+  font-size: 1.5rem;
+}
+
+.reset-btn {
+  background-color: transparent;
+  border: 2px solid #C0C0C0;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  margin-top: 0.5rem;
+  padding: .5rem 1rem;
+  font-size: 1.2rem;
+  visibility: hidden;
+}
+
+.next-btn{
+  background-color: transparent;
+  border: 2px solid #C0C0C0;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  margin-top: 10rem;
+  padding: .5rem 1rem;
+  font-size: 1.2rem;
+}
+
+.time-btn:hover {
+  border: 2px solid #16D9E3;
+  color: #16D9E3;
+}
+.reset-btn:hover{
+  border: 2px solid #16D9E3;
+  color: #16D9E3;
+}
+
+.hide {
+  opacity: 0;
+}
+
+.primary {
+  color: #16D9E3;
+}
+
+.board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(118.38deg, #29323C -4.6%, #485563 200.44%);
+  box-shadow: -8px -8px 20px #2A333D, 10px 7px 20px #475462;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.circle {
+  background: linear-gradient(90deg, #16D9E3 0%, #30C7EC 47%, #46AEF7 100%);
+  position: absolute;
+  border-radius: 50%;
+  cursor: pointer;
+}

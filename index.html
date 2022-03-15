@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Aim Training by JIN</title>
+  </head>
+  <body>
+    <nav class="navbar">
+        <div class="navbar-menu">
+            <ul>
+                <li><a href="#home-screen">Главная</a></li>
+                <li><a href="#rules-screen">Правила</a></li>
+                <li><a href="#set-time-screen">Играть</a></li>
+            </ul>
+        </div>
+
+        <div class="about-me">
+          <div class="info">Тимофей Жамойдин 11ИМ</div>
+          <div class="avatar"><a href="img/DSC01589.jpg" target="_blank"><img src="img/avatar.png" alt="JIN"></a></div>  
+        </div>
+    </nav>
+
+    <div class="home-screen" id="home-screen">
+      <h1>Aim Training</h1>
+      <a href="#rules-screen" class="start" id="start">Начать игру</a>
+    </div>
+
+    <div class="rules-screen" id="rules-screen">
+        <h2>Ознакомьтесь с правилами игры</h2>
+        <div class="rules">
+            <p>1. Задача накликать как можно больше кружочков
+            <p>2. Запрещено править код
+            <p>3. При достижении 30 кликов в игре на 10 сек будет открыта награда
+            <p>4. Нахождение любых пасхалок поощеряется
+            <p>5. За нахождение любой ошибки в коде вам +1 в карму
+        </div>
+        <div class="next-btn"><a href="#set-time-screen">Далее</a></div>
+    </div>  
+
+    <div class="set-time-screen" id="set-time-screen">
+      <h1>Выберите время</h1>
+      <ul class="time-list" id="timeList">
+        <li>
+          <button class="time-btn" data-time="10">
+            10 сек
+          </button>
+        </li>
+        <li>
+          <button class="time-btn" data-time="20">
+            20 сек
+          </button>
+        </li>
+        <li>
+          <button class="time-btn" data-time="30">
+            30 сек
+          </button>
+        </li>
+        <li>
+          <button class="time-btn" data-time="40">
+            40 сек
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="game-screen">
+      <h3>Осталось <span id="time">00:00</span></h3>
+      <div class="board" id="board"></div>
+      <div class="reset-btn" id="resetBtn"><a href="#set-time-screen">Играть еще раз</a></div>
+    </div>
+    <script src="js/app.js"></script>
+    <script src="eggs/slide-for-jin/rout.js"></script>
+  </body>
+</html>
