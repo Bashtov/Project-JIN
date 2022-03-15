@@ -1,3 +1,5 @@
+const mediaQuery = window.matchMedia('(min-width: 768px)')//проверяем ширину экрана >768px
+const windowInnerWidth = document.documentElement.clientWidth
 const startBtn = document.querySelector('#start')
 const screens = document.querySelectorAll('a[href*="#"]')
 const timeList = document.querySelector('#set-time-screen')
@@ -8,9 +10,15 @@ const resetBtn = document.querySelector('#resetBtn')
 const navEl = document.querySelectorAll('#navEl')
 document.body.style.overflow="hidden" //запрещаем скролл для всего документа
 
+if(mediaQuery.matches){
+  board.style.width = board.style.height = 500+'px'//новое значени board
+}
+
 let score = 0
 let time = 0
 
+
+//событе с момента выбора времени запускает игру
 timeList.addEventListener('click', (event) => {
   if (event.target.classList.contains('time-btn')){
     time = parseInt(event.target.getAttribute('data-time'))
@@ -18,7 +26,7 @@ timeList.addEventListener('click', (event) => {
       top: document.body.scrollHeight,
       behavior: "smooth"
     })
-    for(let el of navEl){
+    for(let el of navEl){ //блокируем navbar
       el.style.pointerEvents = "none"
       el.style.cursor = "default"
     }
@@ -34,6 +42,8 @@ board.addEventListener('click', event => {
   }
 })
 
+
+//скролл по кнопкам навигации
 for (let screen of screens) {
     screen.addEventListener('click', (e) => {
         e.preventDefault()
@@ -47,7 +57,8 @@ for (let screen of screens) {
 
 function startGame(){
   resetGame()
-  let interval = setInterval(decreaseTime, 1000)
+  //для избежания сбоев в работе таймера при повторном запуске
+  let interval = setInterval(decreaseTime, 1000) 
   setTimeout(() => { clearInterval(interval)}, (time + 2) * 1000)
   setTime(time)
   creatRandomCircle()
@@ -75,9 +86,9 @@ function finishGame() {
   board.innerHTML = `<h1>Ваш счет: <span class="primary">${score}</span></h1>`
   resetBtn.style.visibility = 'visible'
   for(let el of navEl){
-    el.style.pointerEvents = "none"
-    el.style.cursor = "default"
-}
+    el.style.pointerEvents = "auto"
+    el.style.cursor = "auto"
+  } 
   if(score === 30){
     window.location.href = "../eggs/board-sources/index.html"
   }
